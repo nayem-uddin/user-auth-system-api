@@ -24,3 +24,7 @@ This is the 2nd task of level 3 as an intern at Codveda Technologies
 ### Deployment platform
 
 - Render
+
+### Others
+
+- cron-job: for preventing API from spinning down
