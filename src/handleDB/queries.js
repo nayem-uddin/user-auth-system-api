@@ -25,4 +25,16 @@ async function insertNewUser(userDetails) {
   await User.create(userDetails);
 }
 
-module.exports = { findUserByEmail, insertNewUser };
+/**
+ *
+ * @param {string} id
+ * @param {object} updatedInfo
+ */
+
+async function updateUserInfo(id, updatedInfo) {
+  await User.update(updatedInfo, { where: { id } });
+  const userData = await User.findByPk(id);
+  return userData.get({ plain: true });
+}
+
+module.exports = { findUserByEmail, insertNewUser, updateUserInfo };

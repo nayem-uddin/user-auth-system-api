@@ -4,6 +4,7 @@ const { authRouter } = require("./handleUserRequests/auth");
 const { handleUnknownError } = require("./handleUserRequests/middleware");
 const app = express();
 const cors = require("cors");
+const { updateRouter } = require("./handleUserRequests/update");
 
 app.use(express.json());
 app.use(compression());
@@ -22,7 +23,7 @@ app.get("/", (req, res, next) => {
   }
 });
 
-app.use(authRouter);
+app.use(authRouter, updateRouter);
 app.use(handleUnknownError);
 
 module.exports = { app };
